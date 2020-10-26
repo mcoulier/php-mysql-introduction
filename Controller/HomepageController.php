@@ -7,12 +7,12 @@ class HomepageController
     public function render(array $GET, array $POST)
     {
 
-        function filterData($data){
+/*        function filterData($data){
             $data = filter_var($data);
             $data = filter_input(INPUT_POST, $data);
-            $data = htmlentities($data);
+            $data = htmlentities($data, ENT_COMPAT | ENT_HTML401);
             return $data;
-        }
+        }*/
 
 //Create session variables if they don't exist
         if (!isset($_SESSION['first_name'])) {
@@ -27,6 +27,7 @@ class HomepageController
             $_SESSION['email'] = "";
         }
 
+//When button is clicked, form data sent to database
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //Session variables take data from post variables.
             $_SESSION['first_name'] = $_POST["first_name"];
@@ -35,27 +36,32 @@ class HomepageController
 
             //Error handling fields required
             if (empty($_POST["first_name"])) {
-                $firstName = "";
+                $fName = "";
             } else {
-                $firstName = filterData($_POST["first_name"]);
+                $fName = $_POST["first_name"];
             }
 
             if (empty($_POST["last_name"])) {
-                $lastName = "";
+                $lName = "";
             } else {
-                $lastName = filterData($_POST["last_name"]);
+                $lName = $_POST["last_name"];
             }
 
             if (empty($_POST["email"])) {
                 $email = "";
             } else {
-                $email = filterData($_POST['email']);
+                $email = $_POST['email'];
                 if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
                     $emailErr = "Invalid email";
                 }
             }
 
+            $students = new Student($fName, $lName, $email);
+            $connection = new Connection();
+            $connection->insertStudent($students);
+
         }
+
 
         require 'View/homepage.php';
     }
