@@ -14,8 +14,11 @@
 
 <form method="post">
     First Name: <input type="text" name="first_name"><br>
+    <span class="bg-danger text-white"><?php echo $fNameError;?></span><br>
     Last Name: <input type="text" name="last_name"><br>
+    <span class="bg-danger text-white"><?php echo $lNameError;?></span><br>
     E-mail: <input type="text" name="email"><br>
+    <span class="bg-danger text-white"><?php echo $emailError;?></span><br>
     <input type="submit">
 </form>
 

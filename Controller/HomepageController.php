@@ -27,6 +27,9 @@ class HomepageController
             $_SESSION['email'] = "";
         }
 
+        $fNameError = $lNameError = $emailError = "";
+        $fName = $lName = $email = "";
+
 //When button is clicked, form data sent to database
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             //Session variables take data from post variables.
@@ -36,29 +39,36 @@ class HomepageController
 
             //Error handling fields required
             if (empty($_POST["first_name"])) {
-                $fName = "";
+/*                $fName = "";*/
+                $fNameError = "* First name required!";
             } else {
                 $fName = $_POST["first_name"];
             }
 
             if (empty($_POST["last_name"])) {
-                $lName = "";
+/*                $lName = "";*/
+                $lNameError = "* Last name required!";
             } else {
                 $lName = $_POST["last_name"];
             }
 
             if (empty($_POST["email"])) {
-                $email = "";
+/*                $email = "";*/
+                $emailError = "* email required";
+
             } else {
                 $email = $_POST['email'];
                 if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
-                    $emailErr = "Invalid email";
+                    $emailError = "* Invalid email";
                 }
             }
 
-            $students = new Student($fName, $lName, $email);
-            $connection = new Connection();
-            $connection->insertStudent($students);
+            if (empty($fNameError) && empty($lNameError) && empty($emailError)){
+                $students = new Student($fName, $lName, $email);
+                $connection = new Connection();
+                $connection->insertStudent($students);
+
+            }
 
         }
 
