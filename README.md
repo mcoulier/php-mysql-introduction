@@ -37,8 +37,8 @@ Then we will create a login & registration form for the students to manage their
 - [X] Include the `connection.php` file in both, but make sure your `PHP` code won't run if the connection file isn't included
 - [X] Create a form that allows you to fill in the table with your data in `insert.php`
 - [X] Make sure your form requires every column of the table to be filled
-- Test by inserting your data
-- Check your database program to see if all your data is correctly entered into the database
+- [X] Test by inserting your data
+- [X] Check your database program to see if all your data is correctly entered into the database
 
 ### Step 4:
 We have managed to push our info to a local database, now let's try and pull that same information out of there, follow these instructions:
