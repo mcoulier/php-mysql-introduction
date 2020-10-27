@@ -42,4 +42,15 @@ class Connection
         return $displayStudents;
     }
 
+    public function profileStudent()
+    {
+        $this->PDO;
+        $userId = $_GET['user'];
+        $handle = $this->openConnection()->prepare("Select * FROM student where id = :id");
+        $handle->bindParam(':id', $userId);
+        $handle->execute();
+        $profileStudents = $handle->fetch();
+        return $profileStudents;
+    }
+
 }

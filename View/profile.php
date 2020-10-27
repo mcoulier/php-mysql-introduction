@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Overview</title>
+    <title>Profile</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,39 +12,10 @@
 </head>
 <body>
 <?php
-if(!empty($showStudents)) {
-    foreach($showStudents as $row) {
-        ?>
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Profile</th>
-            </tr>
-            </thead>
-            <tbody>
-                <td><?php echo $row["id"];?></td>
-                <td><?php echo $row["first_name"];?></td>
-                <td><?php echo $row["last_name"];?></td>
-                <td><?php echo $row["email"];?></td>
-                <td><a href="?user=<?= $row["id"]?>"><button type="button" class="btn btn-primary">Profile</button></td></a>
-            </tr>
-            </tbody>
-        </table>
-        <?php
-    }
-}
+echo $showProfileStudents["first_name"];
+echo $showProfileStudents["last_name"];
+echo $showProfileStudents["email"];
 ?>
-<!--        <tr class="table-row">
-            <td><?php /*echo $row["id"]; */?></td>
-            <a href="?user=<?/*= $row["id"]*/?>"><td><?php /*echo $row["first_name"]; */?></td></a>
-            <td><?php /*echo $row["last_name"]; */?></td>
-            <td><?php /*echo $row["email"]; */?></td><br>
-        </tr>-->
-
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
