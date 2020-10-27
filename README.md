@@ -43,15 +43,15 @@ Then we will create a login & registration form for the students to manage their
 ### Step 4:
 We have managed to push our info to a local database, now let's try and pull that same information out of there, follow these instructions:
 
-- On `index.php`, list a table with summaries of most of the details of all people
-- Make sure the table shows the following:
+- [X] On `index.php`, list a table with summaries of most of the details of all people
+- [X] Make sure the table shows the following:
     - Their first name
     - Their last name
     - Their email
     - A link to their personal page (`profile.php?user=$user_id`) (the link can also be, on their name or any other column you prefer)
 
 ### Step 5:
-- On `profile.php` get the required user's details from the database
+- [X] On `profile.php` get the required user's details from the database
 - Print them out on a profile page you design, if you need inspiration, you can look [here](https://www.google.com/search?q=profile+page+design&source=lnms&tbm=isch&sa=X&ved=0ahUKEwis5Juh07HkAhUIJFAKHeJKASYQ_AUIESgB&biw=2560&bih=1297#imgrc=jjirWCPSxqfBFM:)
 - Include an API call to the following API: [Be Like Bill](https://github.com/gautamkrishnar/Be-Like-Bill), use the documentation to understand how you need to use it, do this using either `curl` in PHP or `ajax` in Javascript.
 - The received image (from the api) needs to be worked into the profile page somewhere

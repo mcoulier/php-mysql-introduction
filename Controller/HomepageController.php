@@ -59,13 +59,11 @@ class HomepageController
                     $emailError = "* Invalid email";
                 }
             }
-
+//If errors are empty -> Put new student in database
             if (empty($fNameError) && empty($lNameError) && empty($emailError)){
                 $students = new Student($fName, $lName, $email);
                 $connection = new Connection();
                 $connection->insertStudent($students);
-
-
             }
         }
         require 'View/homepage.php';

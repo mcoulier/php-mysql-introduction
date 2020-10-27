@@ -4,7 +4,6 @@ class Connection
 {
     private $PDO;
     public function openConnection() : PDO {
-// Try to figure out what these should be for you
 
         require ('resources/config.php');
 
@@ -14,15 +13,13 @@ class Connection
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ];
 
-// Try to understand what happens here
         $pdo = new PDO('mysql:host='. $dbhost .';dbname='. $db, $dbuser, $dbpass, $driverOptions);
 
-// Why we do this here
         $this->PDO = $pdo;
         return $pdo;
 
     }
-
+//Function that inserts students into database, parameter is Student CLASS
     public function insertStudent(Student $student)
     {
         $this->PDO;
@@ -33,6 +30,7 @@ class Connection
         $handle->execute();
     }
 
+//Function to display the whole database
     public function displayStudent()
     {
         $this->PDO;
@@ -42,6 +40,7 @@ class Connection
         return $displayStudents;
     }
 
+//Function to display 1 student using his ID (Profile page)
     public function profileStudent()
     {
         $this->PDO;
