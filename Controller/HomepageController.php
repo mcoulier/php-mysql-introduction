@@ -39,21 +39,18 @@ class HomepageController
 
             //Error handling fields required
             if (empty($_POST["first_name"])) {
-/*                $fName = "";*/
                 $fNameError = "* First name required!";
             } else {
                 $fName = $_POST["first_name"];
             }
 
             if (empty($_POST["last_name"])) {
-/*                $lName = "";*/
                 $lNameError = "* Last name required!";
             } else {
                 $lName = $_POST["last_name"];
             }
 
             if (empty($_POST["email"])) {
-/*                $email = "";*/
                 $emailError = "* email required";
 
             } else {
@@ -68,11 +65,9 @@ class HomepageController
                 $connection = new Connection();
                 $connection->insertStudent($students);
 
+
             }
-
         }
-
-
         require 'View/homepage.php';
     }
 }

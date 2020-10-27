@@ -23,7 +23,6 @@ class Connection
 
     }
 
-
     public function insertStudent(Student $student)
     {
         $this->PDO;
@@ -32,6 +31,15 @@ class Connection
         $handle->bindValue(':last_name', $student->getLName());
         $handle->bindValue(':email', $student->getEmail());
         $handle->execute();
+    }
+
+    public function displayStudent()
+    {
+        $this->PDO;
+        $handle = $this->openConnection()->prepare("SELECT * FROM student");
+        $handle->execute();
+        $displayStudents = $handle->fetchAll();
+        return $displayStudents;
     }
 
 }
