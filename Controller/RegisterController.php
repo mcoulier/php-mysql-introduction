@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-class HomepageController
+class RegisterController
 {
     //render function with both $_GET and $_POST vars available if it would be needed.
     public function render(array $GET, array $POST)
@@ -27,8 +27,8 @@ class HomepageController
             $_SESSION['email'] = "";
         }
 
-        $fNameError = $lNameError = $emailError = "";
-        $fName = $lName = $email = "";
+        $fNameError = $lNameError = $emailError = $regPassError = $confPassError ="";
+        $fName = $lName = $email = $password = $confPassword = "";
 
 //When button is clicked, form data sent to database
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -59,13 +59,27 @@ class HomepageController
                     $emailError = "* Invalid email";
                 }
             }
+
+            if (empty($_POST["register_password"])) {
+                $regPassError = "* Password required";
+            } else {
+                $password = password_hash($_POST["register_password"], PASSWORD_DEFAULT);
+            }
+
+            if (empty($_POST["confirm_password"])) {
+                $confPassError = "* You forgot to confirm your password";
+            } else {
+                $confPassword = $_POST["confirm_password"];
+            }
+
 //If errors are empty -> Put new student in database
-            if (empty($fNameError) && empty($lNameError) && empty($emailError)){
-                $students = new Student($fName, $lName, $email);
+            if (empty($fNameError) && empty($lNameError) && empty($emailError) && empty($regPassError) && empty($confPassError) && password_verify($confPassword, $password) == TRUE){
+                $students = new Student($fName, $lName, $email, $password);
                 $connection = new Connection();
                 $connection->insertStudent($students);
             }
+
         }
-        require 'View/homepage.php';
+        require 'View/register.php';
     }
 }

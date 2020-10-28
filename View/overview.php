@@ -15,7 +15,7 @@
 if(!empty($showStudents)) {
     foreach($showStudents as $row) {
         ?>
-        <table class="table">
+        <table class="table table-sm-responsive">
             <thead>
             <tr>
                 <th>ID</th>

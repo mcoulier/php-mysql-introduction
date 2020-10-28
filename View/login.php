@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Homepage</title>
+    <title>Login</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,18 +12,16 @@
 </head>
 <body>
 
-<form method="post">
-    First Name: <input type="text" name="first_name"><br>
-    <span class="bg-danger text-white"><?php echo $fNameError;?></span><br>
-    Last Name: <input type="text" name="last_name"><br>
-    <span class="bg-danger text-white"><?php echo $lNameError;?></span><br>
-    E-mail: <input type="text" name="email"><br>
-    <span class="bg-danger text-white"><?php echo $emailError;?></span><br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-<form method="post">
-    <a class="btn btn-primary" href="?page=overview" role="button">All students</a>
+<form>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Email:</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput2">Password:</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter password">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Submit</button>
 </form>
 
 <!-- Optional JavaScript -->

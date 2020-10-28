@@ -23,10 +23,11 @@ class Connection
     public function insertStudent(Student $student)
     {
         $this->PDO;
-        $handle = $this->openConnection()->prepare("INSERT INTO student (first_name, last_name, email) VALUES (:first_name, :last_name, :email)");
+        $handle = $this->openConnection()->prepare("INSERT INTO student (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)");
         $handle->bindValue(':first_name', $student->getFName());
         $handle->bindValue(':last_name', $student->getLName());
         $handle->bindValue(':email', $student->getEmail());
+        $handle->bindValue(':password', $student->getPassword());
         $handle->execute();
     }
 

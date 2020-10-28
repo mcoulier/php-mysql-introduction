@@ -4,12 +4,14 @@ class Student{
     private string $fName;
     private string $lName;
     private string $email;
+    private string $password;
 
-    public function __construct(string $fName, string $lName, string $email)
+    public function __construct(string $fName, string $lName, string $email, string $password)
     {
         $this->fName = $fName;
         $this->lName = $lName;
         $this->email = $email;
+        $this->password = $password;
     }
 
     /**
@@ -36,5 +38,12 @@ class Student{
         return $this->email;
     }
 
+    /**
+     * @return string
+     */
+    public function getPassword(): string
+    {
+        return $this->password;
+    }
 
 }
