@@ -12,16 +12,17 @@
 </head>
 <body>
 
-<form>
+<form method="post">
     <div class="form-group">
         <label for="formGroupExampleInput">Email:</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter email">
+        <input type="text" class="form-control" name="email" id="email" placeholder="Enter email">
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput2">Password:</label>
-        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter password">
+        <input type="password" class="form-control" name="register_password" id="register_password" placeholder="Enter password">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Submit</button>
+    <?php var_dump($passCheck);?>
 </form>
 
 <!-- Optional JavaScript -->

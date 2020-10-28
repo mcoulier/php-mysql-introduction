@@ -29,6 +29,7 @@
         <label for="formGroupExampleInput2">Confirm password</label>
         <input type="password" name="confirm_password" class="form-control" id="formGroupExampleInput2" placeholder="Confirm password">
         <span class="bg-danger text-white"><?php echo $confPassError;?></span><br>
+        <span class="bg-danger text-white"><?php echo $matchError;?></span><br>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -21,8 +21,10 @@ require 'Controller/LoginController.php';
 
 if(isset($_GET['page']) && $_GET['page'] === 'overview'){
     $controller = new OverviewController();
-} elseif (isset($_GET['user'])){
+} elseif (isset($_GET['user'])) {
     $controller = new ProfileController();
+} elseif ($_GET['page'] === "login"){
+    $controller = new LoginController();
 } else {
     $controller = new RegisterController();
 }

@@ -14,6 +14,12 @@ class RegisterController
             return $data;
         }*/
 
+
+        session_start();
+        $connection = new Connection();
+        $fNameError = $lNameError = $emailError = $regPassError = $confPassError = $matchError = "";
+        $fName = $lName = $email = $password = $confPassword = $passCheck = "";
+
 //Create session variables if they don't exist
         if (!isset($_SESSION['first_name'])) {
             $_SESSION['first_name'] = "";
@@ -26,9 +32,6 @@ class RegisterController
         if (!isset($_SESSION['email'])) {
             $_SESSION['email'] = "";
         }
-
-        $fNameError = $lNameError = $emailError = $regPassError = $confPassError ="";
-        $fName = $lName = $email = $password = $confPassword = "";
 
 //When button is clicked, form data sent to database
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -72,13 +75,14 @@ class RegisterController
                 $confPassword = $_POST["confirm_password"];
             }
 
+
 //If errors are empty -> Put new student in database
             if (empty($fNameError) && empty($lNameError) && empty($emailError) && empty($regPassError) && empty($confPassError) && password_verify($confPassword, $password) == TRUE){
                 $students = new Student($fName, $lName, $email, $password);
-                $connection = new Connection();
                 $connection->insertStudent($students);
+            } elseif (password_verify($confPassword, $password) == FALSE){
+                $matchError = "The passwords don't match";
             }
-
         }
         require 'View/register.php';
     }
