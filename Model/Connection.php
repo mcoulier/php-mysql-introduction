@@ -51,22 +51,6 @@ class Connection
         return $profileStudents;
     }
 
-/*    public function checkEmail(string $email)
-    {
-        $handle = $this->openConnection()->prepare("SELECT email FROM student where email = :email");
-        $handle->bindParam(':email', $email);
-        $handle->execute();
-        $user = $handle->fetch();
-        $passCheck = "";
-        if ($user)
-        {
-            $passCheck = "valid";
-        } else {
-            $passCheck = "invalid";
-        }
-        return $passCheck;
-    }*/
-
 //Update a student if you are on profile
     //Don't forget id WHERE :id, else it will delete your whole db
     public function updateStudent(string $fName, string $lName, string $email, string $password, int $id)

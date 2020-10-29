@@ -22,7 +22,7 @@
         <input type="password" class="form-control" name="register_password" id="register_password" placeholder="Enter password">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Submit</button>
-    <?php var_dump($passCheck);?>
+    <?php echo $checkEmail;?>
 </form>
 
 <!-- Optional JavaScript -->
