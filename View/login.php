@@ -19,10 +19,11 @@
     </div>
     <div class="form-group">
         <label for="formGroupExampleInput2">Password:</label>
-        <input type="password" class="form-control" name="register_password" id="register_password" placeholder="Enter password">
+        <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter password">
     </div>
     <button type="submit" class="btn btn-primary mb-2">Submit</button>
     <?php echo $checkEmail;?>
+    <?php echo $checkPassword;?>
 </form>
 
 <!-- Optional JavaScript -->

@@ -10,17 +10,21 @@ class LoginController
         $connection = new Connection();
         $auth = new Auth();
         $checkEmail = "";
+        $checkPassword = "";
 
         if (!isset($_SESSION['email'])) {
             $_SESSION['email'] = "";
         }
 
+
 //When button is clicked, email gets checked in db, returns yes = valid / no = invalid
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $_POST["email"];
             $email = $_POST['email'];
+            $password = $_POST['login_password'];
 
             $checkEmail = $auth->checkEmail($email);
+            $checkPassword = $auth->checkPassword($password, $email);
 
         }
 

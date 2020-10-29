@@ -71,4 +71,12 @@ class Connection
         $handle->execute();
     }
 
+    public function getHash(string $email)
+    {
+        $handle = $this->openConnection()->prepare("SELECT password FROM student where email = :email");
+        $handle->bindParam(':email', $email);
+        $handle->execute();
+        return $handle->fetch();
+    }
+
 }

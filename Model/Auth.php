@@ -23,6 +23,16 @@ class Auth
         }
     }
 
+    public function checkPassword(string $password, string $email)
+    {
+        $hash = $this->connection->getHash($email);
+        if(password_verify($password, $hash['password'])){
+            return "valid";
+        } else {
+            return "invalid";
+        }
+    }
+
 /*    public function validateEmail(string $email)
     {
         $handle = $this->connection->openConnection()->prepare("SELECT * FROM student WHERE email = ?");
