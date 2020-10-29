@@ -30,7 +30,7 @@ class ProfileController
             $fName = $_POST["first_name"];
             $lName = $_POST["last_name"];
             $email = $_POST["email"];
-
+//intval to return integer ID
             $updateStudents = $connection->updateStudent($fName, $lName, $email, $password, intval($GET['user']));
 
         } elseif ($_POST['action'] == "delete"){

@@ -17,7 +17,7 @@ class LoginController
         }
 
 
-//When button is clicked, email gets checked in db, returns yes = valid / no = invalid
+//When button is clicked, email & password get checked in db, returns yes = valid / no = invalid
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $_POST["email"];
             $email = $_POST['email'];

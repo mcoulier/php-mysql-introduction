@@ -8,7 +8,7 @@ class Auth
     {
         $this->connection = new Connection();
     }
-
+//Check email with database, USED in LoginController
     public function checkEmail(string $email)
     {
         $handle = $this->connection->openConnection()->prepare("SELECT email FROM student where email = :email");
@@ -23,6 +23,7 @@ class Auth
         }
     }
 
+//Check password with database, USED in LoginController
     public function checkPassword(string $password, string $email)
     {
         $hash = $this->connection->getHash($email);

@@ -71,6 +71,7 @@ class Connection
         $handle->execute();
     }
 
+//Function to pass hash to Auth class using student email
     public function getHash(string $email)
     {
         $handle = $this->openConnection()->prepare("SELECT password FROM student where email = :email");
