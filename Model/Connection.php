@@ -67,7 +67,7 @@ class Connection
         return $passCheck;
     }*/
 
-    //Don't forget id WHERE :id
+    //Don't forget id WHERE :id, else it will delete your whole db
     public function updateStudent(string $fName, string $lName, string $email, string $password, int $id)
     {
         $handle = $this->openConnection()->prepare('UPDATE student SET first_name = :fName, last_name = :lName, email = :email, password = :password WHERE id = :id');
@@ -75,6 +75,13 @@ class Connection
         $handle->bindParam(':lName', $lName);
         $handle->bindParam(':email', $email);
         $handle->bindParam(':password', $password);
+        $handle->bindParam(':id', $id);
+        $handle->execute();
+    }
+
+    public function deleteStudent(int $id)
+    {
+        $handle = $this->openConnection()->prepare('DELETE FROM student where id = :id');
         $handle->bindParam(':id', $id);
         $handle->execute();
     }

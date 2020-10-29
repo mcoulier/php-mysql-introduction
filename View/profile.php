@@ -24,7 +24,9 @@ echo $showProfileStudents["first_name"];?>"><br>
     echo $showProfileStudents["last_name"];?>"><br>
     Email: <input type="text" name="email"  value="<?php
     echo $showProfileStudents["email"];?>"><br>
-    <input type="submit" value="Edit">
+    <input type="submit" name="action" value="edit">
+    <input type="submit" name="action" value="delete">
+
 </form>
 
 <!-- Optional JavaScript -->

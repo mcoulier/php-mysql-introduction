@@ -24,15 +24,19 @@ class ProfileController
 
         $fName = $lName = $email = $password = "";
 
-
-        if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        if (isset($_POST['action'])){
+           if ($_POST['action'] == "edit"){
             $fName = $_POST["first_name"];
             $lName = $_POST["last_name"];
             $email = $_POST["email"];
 
             $updateStudents = $connection->updateStudent($fName, $lName, $email, $password, intval($GET['user']));
 
+        } elseif ($_POST['action'] == "delete"){
+            $deleteStudent = $connection->deleteStudent(intval($GET['user']));
+            }
         }
+
 
 
 
