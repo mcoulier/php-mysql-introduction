@@ -11,11 +11,22 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+
 <?php
 echo $showProfileStudents["first_name"];
 echo $showProfileStudents["last_name"];
 echo $showProfileStudents["email"];
 ?>
+<form method="post">
+    First Name: <input type="text" name="first_name" value="<?php
+echo $showProfileStudents["first_name"];?>"><br>
+    Last Name: <input type="text" name="last_name" value="<?php
+    echo $showProfileStudents["last_name"];?>"><br>
+    Email: <input type="text" name="email"  value="<?php
+    echo $showProfileStudents["email"];?>"><br>
+    <input type="submit" value="Edit">
+</form>
+
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

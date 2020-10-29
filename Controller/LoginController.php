@@ -13,22 +13,28 @@ class LoginController
             $_SESSION['email'] = "";
         }
 
-        $passCheck = "";
-
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $_POST["email"];
+            $email = $_POST['email'];
 
-            $stmt = $connection->openConnection()->prepare("SELECT * FROM student WHERE email = ?");
-            $stmt->execute([$_POST["email"]]);
-            $user = $stmt->fetch();
-
-/*            && password_verify($_POST["register_password"], $user['password']*/
+            $handle = $connection->openConnection()->prepare("SELECT email FROM student where email = :email");
+            $handle->bindParam(':email', $email);
+            $handle->execute();
+            $user = $handle->fetch();
+            $passCheck = "";
             if ($user)
             {
                 $passCheck = "valid";
             } else {
                 $passCheck = "invalid";
             }
+
+
+
+
+
+/*            && password_verify($_POST["register_password"], $user['password']*/
+
         }
 
         require 'View/login.php';

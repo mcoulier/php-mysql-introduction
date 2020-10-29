@@ -34,7 +34,6 @@ class Connection
 //Function to display the whole database
     public function displayStudent()
     {
-        $this->PDO;
         $handle = $this->openConnection()->prepare("SELECT * FROM student");
         $handle->execute();
         $displayStudents = $handle->fetchAll();
@@ -44,13 +43,40 @@ class Connection
 //Function to display 1 student using his ID (Profile page)
     public function profileStudent()
     {
-        $this->PDO;
         $userId = $_GET['user'];
-        $handle = $this->openConnection()->prepare("Select * FROM student where id = :id");
+        $handle = $this->openConnection()->prepare("SELECT * FROM student where id = :id");
         $handle->bindParam(':id', $userId);
         $handle->execute();
         $profileStudents = $handle->fetch();
         return $profileStudents;
+    }
+
+/*    public function checkEmail(string $email)
+    {
+        $handle = $this->openConnection()->prepare("SELECT email FROM student where email = :email");
+        $handle->bindParam(':email', $email);
+        $handle->execute();
+        $user = $handle->fetch();
+        $passCheck = "";
+        if ($user)
+        {
+            $passCheck = "valid";
+        } else {
+            $passCheck = "invalid";
+        }
+        return $passCheck;
+    }*/
+
+    //Don't forget id WHERE :id
+    public function updateStudent(string $fName, string $lName, string $email, string $password, int $id)
+    {
+        $handle = $this->openConnection()->prepare('UPDATE student SET first_name = :fName, last_name = :lName, email = :email, password = :password WHERE id = :id');
+        $handle->bindParam(':fName', $fName);
+        $handle->bindParam(':lName', $lName);
+        $handle->bindParam(':email', $email);
+        $handle->bindParam(':password', $password);
+        $handle->bindParam(':id', $id);
+        $handle->execute();
     }
 
 }
