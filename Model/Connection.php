@@ -67,6 +67,7 @@ class Connection
         return $passCheck;
     }*/
 
+//Update a student if you are on profile
     //Don't forget id WHERE :id, else it will delete your whole db
     public function updateStudent(string $fName, string $lName, string $email, string $password, int $id)
     {
@@ -78,7 +79,7 @@ class Connection
         $handle->bindParam(':id', $id);
         $handle->execute();
     }
-
+//Delete a student while you are on profile page
     public function deleteStudent(int $id)
     {
         $handle = $this->openConnection()->prepare('DELETE FROM student where id = :id');

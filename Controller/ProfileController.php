@@ -24,6 +24,7 @@ class ProfileController
 
         $fName = $lName = $email = $password = "";
 
+//Check if there was an action, then register which of buttons was clicked
         if (isset($_POST['action'])){
            if ($_POST['action'] == "edit"){
             $fName = $_POST["first_name"];

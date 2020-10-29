@@ -13,10 +13,12 @@
 <body>
 
 <?php
-echo $showProfileStudents["first_name"];
-echo $showProfileStudents["last_name"];
-echo $showProfileStudents["email"];
-?>
+echo $showProfileStudents["first_name"];?><br>
+<?php
+echo $showProfileStudents["last_name"];?><br>
+<?php
+echo $showProfileStudents["email"];?>
+
 <form method="post">
     First Name: <input type="text" name="first_name" value="<?php
 echo $showProfileStudents["first_name"];?>"><br>
@@ -26,7 +28,6 @@ echo $showProfileStudents["first_name"];?>"><br>
     echo $showProfileStudents["email"];?>"><br>
     <input type="submit" name="action" value="edit">
     <input type="submit" name="action" value="delete">
-
 </form>
 
 <!-- Optional JavaScript -->

@@ -12,7 +12,7 @@ class LoginController
         if (!isset($_SESSION['email'])) {
             $_SESSION['email'] = "";
         }
-
+//When button is clicked, email gets checked in db, returns yes = valid / no = invalid
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $_POST["email"];
             $email = $_POST['email'];
